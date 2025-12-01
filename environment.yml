@@ -1,0 +1,24 @@
+name: stock-correlations
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - jupyter
+  - jupyterlab
+  - notebook
+  - ipykernel
+  - numpy
+  - networkx
+  - python-dotenv
+  - pandas
+  - tqdm
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - scipy
+  - xgboost
+  - pip
+  - pip:
+    - neo4j
+    - defeatbeta-api
