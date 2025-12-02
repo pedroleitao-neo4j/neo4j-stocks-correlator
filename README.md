@@ -25,24 +25,24 @@ This model can be used to predict pairs of stocks that are likely to become corr
 
 The trained model can then be used to predict potential correlations between stocks in future time windows, aiding in investment decisions and risk management:
 
-- Which stocks are likely to move together in the future?
-- How can we diversify a portfolio to minimize risk based on predicted correlations?
+- **Which stocks are likely to move together in the future?**
+- **How can we diversify a portfolio to minimize risk based on predicted correlations?**
 
 With some adaptations, it could also answer:
 
-- Which stocks are emerging as "Super-Hubs" of risk?
+- **Which stocks are emerging as "Super-Hubs" of risk?**
 Context: By predicting which nodes will rapidly increase their degree centrality (connect to many others), you can identify stocks that, if they fail, could drag down a large portion of the market.
 
-- What are the likely pathways for sector contagion?
+- **What are the likely pathways for sector contagion?**
 Context: If the model predicts new links forming between a Tech stock and a Banking stock, it identifies a bridge where volatility in one sector could spill over into another.
 
-- Which uncorrelated pairs are ripe for Statistical Arbitrage?
+- **Which uncorrelated pairs are ripe for Statistical Arbitrage?**
 Context: The model identifies pairs that are not yet correlated but will likely become correlated. Traders can enter "pairs trades" early (long one, short the other) before the market consensus prices in the relationship.
 
-- Are we witnessing a "regime shift" in market behavior?
+- **Are we witnessing a "regime shift" in market behavior?**
 Context: If the model suddenly predicts a massive increase in total graph density (everything correlating with everything), it signals a shift from a "stock-picker's market" to a macro-driven "risk-on/risk-off" environment.
 
-- Which assets are "false diversifiers"?
+- **Which assets are "false diversifiers"?**
 Context: You might hold Stock A and Stock B thinking they are distinct. If the model predicts a high probability of a link forming next month, your portfolio is becoming less diversified than you think.
 
 And many more...
