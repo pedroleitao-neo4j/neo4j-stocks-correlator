@@ -1,5 +1,7 @@
 # A Correlation Predictor for Equities, using Neo4j and Graph Data Science
 
+![Correlation Predictor for Equities](headline.png)
+
 This repository contains a project that builds a correlation predictor for equities using Neo4j and its Graph Data Science library. The predictor leverages historical stock data to identify potential correlations (i.e., equities that move together) between different stocks over time. This is important in hedging strategies, portfolio diversification, and risk management.
 
 The model could be used in various financial applications, such as portfolio management, risk assessment, and algorithmic trading, across a variety of asset classes - not just equities. Stocks were chosen for this initial implementation due to the availability of historical data and their relevance in financial markets.
