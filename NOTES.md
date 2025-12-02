@@ -103,9 +103,12 @@ CALL (row) {
        date(row.end)     AS endDate,
        toFloat(row.mean_return) AS meanReturn,
        toFloat(row.volatility)  AS volatility,
+       toFloat(row.volatility_norm) AS volatilityNorm,
        toFloat(row.avg_volume)  AS avgVolume,
+       toFloat(row.volume_norm) AS volumeNorm,
        toFloat(row.vol_zscore)  AS volZscore,
-       toFloat(row.momentum)    AS momentum
+       toFloat(row.momentum)    AS momentum,
+       toFloat(row.momentum_norm) AS momentumNorm
 
   MERGE (s:Stock {ticker: row.ticker})
   MERGE (w:StockWindow {ticker: row.ticker, window_id: row.window_id})
@@ -117,8 +120,11 @@ CALL (row) {
     w.mean_return = meanReturn,
     w.volatility  = volatility,
     w.avg_volume  = avgVolume,
+    w.volume_norm = volumeNorm,
     w.vol_zscore  = volZscore,
-    w.momentum    = momentum
+    w.momentum    = momentum,
+    w.volatility_norm = volatilityNorm,
+    w.momentum_norm   = momentumNorm
 
   MERGE (s)-[:HAS_METRICS]->(w)
 } IN TRANSACTIONS OF 1000 ROWS;
