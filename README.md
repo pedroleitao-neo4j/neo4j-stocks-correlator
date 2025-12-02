@@ -14,7 +14,7 @@ This project is divided into three main notebooks:
 2. **[analysis.ipynb](analysis.ipynb)**: This notebook explores the constructed graph, analyzing its properties and visualizing key aspects of the stock correlation network.
 3. **[link_prediction.ipynb](link_prediction.ipynb)**: This notebook implements a link prediction model using features derived from the graph structure and node attributes to predict future correlations between stocks.
 
-## What the model does
+## What the model does
 
 This model can be used to predict pairs of stocks that are likely to become correlated in the future, based on their historical correlation patterns and other features derived from the graph structure. To train the model, historical stock data is divided into time windows, and for each window, a correlation graph is constructed where nodes represent stocks and edges represent significant correlations between them. The model is trained to predict the formation of edges (correlations) in future time windows based on features extracted from the graph structure and node attributes:
 
