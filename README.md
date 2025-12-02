@@ -4,7 +4,13 @@ This repository contains a project that builds a correlation predictor for equit
 
 The model could be used in various financial applications, such as portfolio management, risk assessment, and algorithmic trading, across a variety of asset classes - not just equities. Stocks were chosen for this initial implementation due to the availability of historical data and their relevance in financial markets.
 
-The purpose of this project is to demonstrate how graph databases and graph algorithms can be applied to financial data to uncover insights and make predictions based on highly interconnected data.
+The purpose of this project is to demonstrate how Neo4j allied with graph algorithms can be applied to financial data to uncover insights and make predictions.
+
+This project is divided into three main notebooks:
+
+1. **[correlator.ipynb](correlator.ipynb)**: This notebook focuses on data preparation, it uses **real** historical stock price data to compute rolling correlations between stock returns over specified time windows. The resulting correlations are then stored in a Neo4j graph database, where stocks are represented as nodes and significant correlations as edges.
+2. **[analysis.ipynb](analysis.ipynb)**: This notebook explores the constructed graph, analyzing its properties and visualizing key aspects of the stock correlation network.
+3. **[link_prediction.ipynb](link_prediction.ipynb)**: This notebook implements a link prediction model using features derived from the graph structure and node attributes to predict future correlations between stocks.
 
 ## What the model does
 
