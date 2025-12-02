@@ -52,10 +52,10 @@ And many more...
 Preliminary results indicate that the model can achieve significant predictive accuracy, especially considering the complexity and noise inherent in financial markets. Further tuning and feature engineering may enhance performance. For the run in this repository, an [XGBoost](https://xgboost.readthedocs.io/en/stable/) classifier was used, achieving the following metrics:
 
 ```
-ROC/AP: (0.7554971431247659, 0.08409355145560418)
+ROC/AP: (0.7206526320719371, 0.07900138795357849)
 Baseline (Random Chance): 0.0118
-Model AP: 0.0841
-Lift from random classification: 7.10x (the model is 7.1 times better than random guessing in terms of average precision)
+Model AP: 0.0790
+Lift: 6.67x (the model is 6.7 times better than random guessing in terms of average precision)
 ```
 
 The above suggests the model is useable for practical applications, although further improvements could be made.
