@@ -1,6 +1,6 @@
 # Notes on Stock Correlation Analysis
 
-## High-level overview
+## High-level overview
 
 Node label: `Stock`
 Relationship type: `CO_MOVES_WITH`
@@ -11,7 +11,7 @@ Key idea: edges are time-windowed correlations between returns.
 - Simpler (good first pass): one graph per time window → store only the latest window in Neo4j.
 - Richer: keep multiple windows and add window_id/start_date/end_date on edges.
 
-## Node model
+## Node model
 
 ```cypher
 CREATE CONSTRAINT stock_ticker_unique IF NOT EXISTS
@@ -47,7 +47,7 @@ Stock {
 }
 ```
 
-## Relationship model
+## Relationship model
 
 ```cypher
 (:Stock)-[:CO_MOVES_WITH {
@@ -77,6 +77,7 @@ ON CREATE SET
 ```
 
 ## Metrics model
+
 ```cypher
 (:Stock {ticker})
   -[:HAS_METRICS]->
