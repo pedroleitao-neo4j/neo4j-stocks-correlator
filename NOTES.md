@@ -1,5 +1,11 @@
 # Notes on Stock Correlation Analysis
 
+## Quick instructions on how to load the produced CSVs into Neo4j
+
+1. Create a new Neo4j database (`stocks`).
+2. Place the CSV files (`stocks.csv`, `co_movements_windows.csv`, `window_ticker_stats.csv`) in the `import` folder of the Neo4j database.
+3. Open Neo4j Browser and run the Cypher commands below in order to create constraints and load the data.
+
 ## High-level overview
 
 Node label: `Stock`
@@ -13,13 +19,15 @@ Key idea: edges are time-windowed correlations between returns.
 
 ## Node model
 
+First, create uniqueness constraint on ticker:
+
 ```cypher
 CREATE CONSTRAINT stock_ticker_unique IF NOT EXISTS
 FOR (s:Stock)
 REQUIRE s.ticker IS UNIQUE;
 ```
 
-Loading with:
+Load with:
 
 ```cypher
 LOAD CSV WITH HEADERS FROM 'file:///stocks.csv' AS row
@@ -32,34 +40,7 @@ ON CREATE SET
   s.country  = row.country;
 ```
 
-## Example properties
-
-```cypher
-Stock {
-  ticker: STRING!,       // e.g. "AAPL"
-  name: STRING,
-  exchange: STRING,      // "NYSE", "NASDAQ", "LSE"
-  sector: STRING,        // e.g. "Information Technology"
-  industry: STRING,      // e.g. "Semiconductors"
-  country: STRING,       // "US", "UK"
-  marketCap: FLOAT,      // optional
-  beta: FLOAT            // optional, for features
-}
-```
-
 ## Relationship model
-
-```cypher
-(:Stock)-[:CO_MOVES_WITH {
-  corr:   FLOAT,     // Pearson correlation in window
-  window: STRING,    // "2024-01-01_2024-03-31"
-  start:  DATE,      // optional
-  end:    DATE,      // optional
-  sign:   STRING     // "POS" or "NEG"
-}]-(:Stock)
-```
-
-Typically only keep edges where `ABS(corr) >= 0.7`. Also drop self-loops and near-duplicates.
 
 Load with:
 
@@ -78,21 +59,6 @@ ON CREATE SET
 
 ## Metrics model
 
-```cypher
-(:Stock {ticker})
-  -[:HAS_METRICS]->
-(:StockWindow {
-   window_id,
-   window,
-   start,
-   end,
-   mean_return,
-   volatility,
-   avg_volume,
-   vol_zscore,
-   momentum
-})
-```
 Load with:
 
 ```cypher
