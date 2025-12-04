@@ -79,10 +79,11 @@ Our model uses such graphs constructed over rolling time windows to learn patter
 Preliminary results indicate that the model can achieve significant predictive accuracy, especially considering the complexity and noise inherent in financial markets. Further tuning and feature engineering may enhance performance. For the run in this repository, an [XGBoost](https://xgboost.readthedocs.io/en/stable/) classifier was used, achieving the following metrics:
 
 ```
-ROC/AP: (0.7206526320719371, 0.07900138795357849)
+ROC AUC: 0.7377
+Avg Precision: 0.0412
 Baseline (Random Chance): 0.0118
-Model AP: 0.0924
-Lift: 7.80x (the model is 7.8 times better than random guessing in terms of average precision)
+Model AP: 0.0412
+Lift: 3.48x (the model is 3.48x times better than random guessing in terms of average precision)
 ```
 
 The above suggests the model is useable for practical applications, although further improvements could be made to make it more robust, and time invariant.
