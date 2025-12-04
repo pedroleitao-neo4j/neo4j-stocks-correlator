@@ -15,6 +15,7 @@ dependencies:
   - tqdm
   - matplotlib
   - seaborn
+  - shap
   - scikit-learn
   - scipy
   - xgboost
