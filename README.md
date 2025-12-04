@@ -44,7 +44,7 @@ With some adaptations, it could also answer:
 
 And many more...
 
-## What the graph looks like
+## What the graph looks like
 
 ![Correlations for ABT](abt-corr.png)
 
